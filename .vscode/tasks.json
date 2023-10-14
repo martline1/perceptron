@@ -8,13 +8,13 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "${fileDirname}/TruthTable/TruthTable.cpp",
                 "${fileDirname}/KnownResult/KnownResult.cpp",
                 "${fileDirname}/CustomError/CustomError.cpp",
-                "${fileDirname}/TruthTable/TruthTable.cpp",
                 "${fileDirname}/Helpers/Helpers.cpp",
                 "${fileDirname}/Perceptron/Perceptron.cpp",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/../out/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"

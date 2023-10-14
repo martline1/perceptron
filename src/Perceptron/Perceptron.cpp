@@ -9,23 +9,23 @@
 
 using namespace std;
 
-void Perceptron::constructor_body(vector<double> *inputs) {
+void Perceptron::constructor_body(unsigned int num_of_inputs) {
     // Generate random weight for each input
-    for (unsigned int i = 0; i < (*inputs).size(); i++) {
+    for (unsigned int i = 0; i < num_of_inputs; i++) {
         weights.push_back(Helpers::get_random<double>(-1.0, 1.0));
     }
 }
 
-Perceptron::Perceptron(vector<double> *inputs):
+Perceptron::Perceptron(unsigned int num_of_inputs):
     learning_rate(0.1f)
 {
-    this->constructor_body(inputs);
+    this->constructor_body(num_of_inputs);
 }
 
-Perceptron::Perceptron(vector<double> *inputs, double learning_rate):
+Perceptron::Perceptron(unsigned int num_of_inputs, double learning_rate):
     learning_rate(learning_rate)
 {
-    this->constructor_body(inputs);
+    this->constructor_body(num_of_inputs);
 }
 
 // And operator training

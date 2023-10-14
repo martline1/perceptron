@@ -2,8 +2,8 @@
 #include <vector>
 
 #include "CustomError/CustomError.h"
-#include "KnownResult/KnownResult.h"
 #include "TruthTable/TruthTable.h"
+#include "KnownResult/KnownResult.h"
 #include "Helpers/Helpers.h"
 #include "Perceptron/Perceptron.h"
 
@@ -11,18 +11,29 @@ using namespace std;
 
 int main() {
     try {
-        vector<double> inputs;
+        unsigned long training_amount = 1000000;
+        unsigned int num_of_inputs = 2;
 
-        inputs.push_back(1.0);
-        inputs.push_back(2.0);
+        Perceptron perceptron(num_of_inputs);
 
-        Perceptron perceptron(&inputs);
+        // And Training
+        vector<KnownResult> results;
 
-        KnownResult kr(AND);
-
-        for (unsigned int i = 0; i < 10; i++) {
-            cout << (kr.get_random_bool() ? "true" : "false") << endl;
+        for (int i = 0; i < training_amount; i++) {
+            results.push_back(KnownResult(TruthTable::AND));
         }
+
+        for (KnownResult &result: results) {
+            perceptron.train(&result.get_inputs(), result.get_target());
+        }
+
+        cout << "Our guess for the known values: " << endl << endl;
+
+        KnownResult kr(TruthTable::AND);
+
+        kr.display();
+
+        cout << "Perceptron result = " << perceptron.process(&kr.get_inputs());
     } catch (CustomError err) {
         err.display();
     }

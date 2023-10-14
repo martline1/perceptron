@@ -14,7 +14,12 @@ class KnownResult {
         void and_known_result();
 
     public:
-        KnownResult(TruthTable table);
+        KnownResult(TruthTable::Value table);
 
         bool get_random_bool();
+
+        vector<double>& get_inputs();
+        int& get_target();
+
+        void display();
 };

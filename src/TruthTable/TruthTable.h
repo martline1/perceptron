@@ -1,3 +1,10 @@
 #pragma once
 
-enum TruthTable;
+class TruthTable {
+    public:
+        enum Value {
+            AND,
+            OR,
+            XOR
+        };
+};

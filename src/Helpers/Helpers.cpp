@@ -24,6 +24,7 @@ double Helpers::get_random<double>(double, double);
 template
 int Helpers::get_random<int>(int, int);
 
+// lower_bound included, upper_bound excluded
 template<class T>
 T Helpers::get_random(T lower_bound, T upper_bound) {
     const long max_rand = 1000000L;

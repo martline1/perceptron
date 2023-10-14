@@ -9,11 +9,11 @@ class Perceptron {
         double learning_rate;
         vector<double> weights;
 
-        void constructor_body(vector<double> *inputs);
+        void constructor_body(unsigned int num_of_inputs);
 
     public:
-        Perceptron(vector<double> *inputs);
-        Perceptron(vector<double> *inputs, double learning_rate);
+        Perceptron(unsigned int num_of_inputs);
+        Perceptron(unsigned int num_of_inputs, double learning_rate);
 
         void train(vector<double> *inputs, int target);
 
